@@ -26,7 +26,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="visually-hidden"></h1>
+      <h1 className="visually-hidden">Job listings with filtering</h1>
       {data.map(displayListing)}
       <Footer />
     </div>
