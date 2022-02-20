@@ -1,10 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap");
+
+:root {
+  --font: "Spartan", sans-serif;
+  --dark-cyan: hsl(180, 29%, 50%);
+  --light-grayish-cyan-1: hsl(180, 52%, 96%);
+  --light-grayish-cyan-2: hsl(180, 31%, 95%);
+  --dark-grayish-cyan: hsl(180, 8%, 52%);
+  --very-dark-grayish-cyan: hsl(180, 14%, 20%);
+  --white: hsl(0, 0%, 100%);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--light-grayish-cyan-1);
+  background-image: url("../public/images/bg-header-mobile.svg");
+  background-size: 100% 156px;
+  background-repeat: no-repeat;
+  color: var(--very-dark-grayish-cyan);
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* Listing */
+
+.listing {
+  width: min(88%, 121rem);
+  margin: 0 auto 4rem;
+  background-color: var(--white);
+  border-radius: 5px;
+  padding: 3.25rem 2.5rem 2.5rem;
+}
+
+.company {
+  color: var(--dark-cyan);
+  font-weight: 700;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.75rem;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-left: 0.5rem;
+  line-height: 1;
+  border-radius: 50px;
+}
+
+.new {
+  background: var(--dark-cyan);
+}
+
+.featured {
+  background: var(--very-dark-grayish-cyan);
+}
+
+.detail {
+  color: var(--dark-grayish-cyan);
+}
+
+.filter-tablet {
+  background-color: var(--light-grayish-cyan-1);
+  color: var(--dark-cyan);
+  display: inline-block;
+  padding: 1rem 0.75rem;
+  margin-left: 1.75rem;
+  border-radius: 5px;
+  line-height: 1;
+}
+
 /* Footer */
 
 .attribution {
-  font-size: 11px;
+  font-size: 1.1rem;
   text-align: center;
 }
 
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: var(--dark-cyan);
+}
+
+/* Media Queries */
+@media screen and (min-width: 1000px) {
+  body {
+    background-image: url("../public/images/bg-header-desktop.svg");
+  }
+
+  .listing {
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .listing-details {
+    display: flex;
+  }
 }
