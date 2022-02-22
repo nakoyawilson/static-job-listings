@@ -1,5 +1,13 @@
 const FilterTablet = (props) => {
-  return <span className="filter-tablet">{props.filterCriteria}</span>;
+  return (
+    <button
+      className="filter-tablet"
+      onClick={props.handleClick}
+      value={props.filterCriteria}
+    >
+      {props.filterCriteria}
+    </button>
+  );
 };
 
 export default FilterTablet;

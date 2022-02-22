@@ -16,7 +16,14 @@ html {
 
 body {
   background-color: var(--light-grayish-cyan-1);
-  background-image: url("../public/images/bg-header-mobile.svg");
+  background-image: url("../public/images/bg-header-mobile.svg"),
+    linear-gradient(
+      to bottom,
+      var(--dark-cyan) 0,
+      var(--dark-cyan) 156px,
+      var(--light-grayish-cyan-2) 156px,
+      var(--light-grayish-cyan-2) 100%
+    );
   background-size: 100% 156px;
   background-repeat: no-repeat;
   color: var(--very-dark-grayish-cyan);
@@ -34,6 +41,17 @@ body {
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+/* Criteria */
+.filter-criteria {
+  display: flex;
+  justify-content: space-between;
+  width: min(88%, 121rem);
+  margin: 0 auto 4rem;
+  background-color: var(--white);
+  border-radius: 5px;
+  padding: 3.25rem 2.5rem 2.5rem;
 }
 
 /* Listing */
@@ -74,13 +92,17 @@ body {
 }
 
 .filter-tablet {
+  border: none;
   background-color: var(--light-grayish-cyan-1);
   color: var(--dark-cyan);
-  display: inline-block;
   padding: 1rem 0.75rem;
   margin-left: 1.75rem;
   border-radius: 5px;
   line-height: 1;
+}
+
+.filter-tablet:hover {
+  cursor: pointer;
 }
 
 /* Footer */
@@ -97,7 +119,18 @@ body {
 /* Media Queries */
 @media screen and (min-width: 1000px) {
   body {
-    background-image: url("../public/images/bg-header-desktop.svg");
+    background-image: url("../public/images/bg-header-desktop.svg"),
+      linear-gradient(
+        to bottom,
+        var(--dark-cyan) 0,
+        var(--dark-cyan) 156px,
+        var(--light-grayish-cyan-2) 156px,
+        var(--light-grayish-cyan-2) 100%
+      );
+  }
+
+  .App {
+    margin-top: 23rem;
   }
 
   .listing {

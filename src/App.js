@@ -1,9 +1,37 @@
+import { useState } from "react";
+import FilterCriteria from "./components/FilterCriteria";
 import Listing from "./components/Listing";
 import Footer from "./components/Footer";
 import data from "./data.json";
 import "./App.css";
 
 const App = () => {
+  const [criteria, setCriteria] = useState([]);
+
+  const handleClear = () => {
+    setCriteria([]);
+  };
+
+  const handleClick = (e) => {
+    const interimArray = [...criteria];
+    interimArray.push(e.target.value);
+    setCriteria(interimArray);
+  };
+
+  const filtered =
+    criteria.length === 0
+      ? data
+      : data.filter((item) => {
+          return criteria.every((criterion) => {
+            return (
+              item.role === criterion ||
+              item.level === criterion ||
+              item.languages.includes(criterion) ||
+              item.tools.includes(criterion)
+            );
+          });
+        });
+
   const displayListing = (item) => {
     return (
       <Listing
@@ -20,6 +48,7 @@ const App = () => {
         location={item.location}
         languages={item.languages}
         tools={item.tools}
+        handleClick={handleClick}
       />
     );
   };
@@ -27,7 +56,8 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="visually-hidden">Job listings with filtering</h1>
-      {data.map(displayListing)}
+      <FilterCriteria handleClear={handleClear} criteria={criteria} />
+      {filtered.map(displayListing)}
       <Footer />
     </div>
   );

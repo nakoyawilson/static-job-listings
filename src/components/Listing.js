@@ -3,7 +3,13 @@ import FilterTablet from "./FilterTablet";
 
 const Listing = (props) => {
   const displayFilterTablet = (item, index) => {
-    return <FilterTablet key={index} filterCriteria={item} />;
+    return (
+      <FilterTablet
+        key={index}
+        filterCriteria={item}
+        handleClick={props.handleClick}
+      />
+    );
   };
 
   return (
@@ -25,8 +31,14 @@ const Listing = (props) => {
         </div>
       </div>
       <div className="filter-tablets">
-        <FilterTablet filterCriteria={props.role} />
-        <FilterTablet filterCriteria={props.level} />
+        <FilterTablet
+          filterCriteria={props.role}
+          handleClick={props.handleClick}
+        />
+        <FilterTablet
+          filterCriteria={props.level}
+          handleClick={props.handleClick}
+        />
         {props.languages.map(displayFilterTablet)}
         {props.tools.map(displayFilterTablet)}
       </div>
