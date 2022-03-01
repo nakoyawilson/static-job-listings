@@ -13,18 +13,20 @@ const Listing = (props) => {
   };
 
   return (
-    <section className="listing">
+    <section className={`listing ${props.featured ? "featured-listing" : ""}`}>
       <div className="listing-details">
         <div className="image-wrapper">
-          <img src={props.logo} alt={`${props.company} logo`} />
+          <img src={props.logo} alt={`${props.company} logo`} class="logo" />
         </div>
         <div className="listing-text">
-          <h2 className="company">{props.company}</h2>
-          {props.new && <Badge badgeClass="new" badgeText="New!" />}
-          {props.featured && (
-            <Badge badgeClass="featured" badgeText="Featured" />
-          )}
-          <h3>{props.position}</h3>
+          <div className="company-wrapper">
+            <h2 className="company">{props.company}</h2>
+            {props.new && <Badge badgeClass="new" badgeText="New!" />}
+            {props.featured && (
+              <Badge badgeClass="featured" badgeText="Featured" />
+            )}
+          </div>
+          <h3 className="position">{props.position}</h3>
           <span className="detail">{props.postedAt}</span>
           <span className="detail">{props.contract}</span>
           <span className="detail">{props.location}</span>

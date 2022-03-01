@@ -56,10 +56,12 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="visually-hidden">Job listings with filtering</h1>
-      {criteria.length > 0 && (
-        <FilterCriteria handleClear={handleClear} criteria={criteria} />
-      )}
-      {filtered.map(displayListing)}
+      <div className="listings-wrapper">
+        {criteria.length > 0 && (
+          <FilterCriteria handleClear={handleClear} criteria={criteria} />
+        )}
+        {filtered.map(displayListing)}
+      </div>
       <Footer />
     </div>
   );
