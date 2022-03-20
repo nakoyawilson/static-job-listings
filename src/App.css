@@ -106,9 +106,9 @@ button {
 
 .btn-remove {
   background-color: var(--dark-cyan);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-image: url("../public/images/icon-remove.svg");
+  background-repeat: no-repeat;
+  background-position: center;
   width: 3.2rem;
   height: 3.2rem;
 }
@@ -381,25 +381,5 @@ button {
     cursor: pointer;
     background: var(--dark-cyan);
     color: var(--white);
-  }
-
-  #root
-    > main
-    > div
-    > section:nth-child(2)
-    > div.listing-details
-    > div.listing-text
-    > span:nth-child(4)::after {
-    right: -2.5rem;
-  }
-
-  #root
-    > main
-    > div
-    > section:nth-child(2)
-    > div.listing-details
-    > div.listing-text
-    > span:nth-child(5) {
-    margin-left: 2.2rem;
   }
 }
