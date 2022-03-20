@@ -65,6 +65,11 @@ button {
 .listings-wrapper {
   margin: 21.2rem auto 3.4rem;
   width: min(87.2%, 111rem);
+  position: relative;
+}
+
+.listings-wrapper.extra-margin {
+  margin-top: 29.6rem;
 }
 
 /* Criteria */
@@ -82,6 +87,8 @@ button {
   font-size: 1.3rem;
   line-height: 2.4rem;
   letter-spacing: -0.1px;
+  position: absolute;
+  top: -17.6rem;
 }
 
 .criteria-list {
@@ -296,11 +303,16 @@ button {
     margin: 23.2rem auto 11rem;
   }
 
+  .listings-wrapper.extra-margin {
+    margin-top: 23.2rem;
+  }
+
   /* Criteria */
 
   .filter-criteria {
     margin-bottom: 4rem;
     padding: 2rem 4rem;
+    top: -11.2rem;
   }
 
   .btn-remove:hover {

@@ -3,7 +3,6 @@ import FilterCriteria from "./components/FilterCriteria";
 import Listing from "./components/Listing";
 import Footer from "./components/Footer";
 import data from "./data.json";
-// import data from "./data-development.json";
 import "./App.css";
 
 const App = () => {
@@ -65,7 +64,11 @@ const App = () => {
     <>
       <main>
         <h1 className="visually-hidden">Job listings with filtering</h1>
-        <div className="listings-wrapper">
+        <div
+          className={`listings-wrapper ${
+            criteria.length > 0 ? "extra-margin" : ""
+          }`}
+        >
           {criteria.length > 0 && (
             <FilterCriteria
               handleClear={handleClear}
