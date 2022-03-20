@@ -14,7 +14,6 @@ const App = () => {
   };
 
   const handleRemoveCriteria = (e) => {
-    e.stopPropagation();
     const itemToRemove = e.target.value;
     const interimArray = [...criteria];
     const filteredArray = interimArray.filter((item) => item !== itemToRemove);
