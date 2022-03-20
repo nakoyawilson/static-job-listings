@@ -3,12 +3,14 @@
 :root {
   --font: "Spartan", sans-serif;
   --dark-cyan: hsl(180, 29%, 50%);
-  --dark-cyan-shadow: hsla(180, 29%, 50%, 0.2);
+  --dark-cyan-transparent: hsla(180, 29%, 50%, 0.1);
   --light-grayish-cyan-1: hsl(180, 52%, 96%);
   --light-grayish-cyan-2: hsl(180, 31%, 95%);
   --dark-grayish-cyan: hsl(180, 8%, 52%);
   --very-dark-grayish-cyan: hsl(180, 14%, 20%);
   --white: hsl(0, 0%, 100%);
+  --shadow: rgba(13, 113, 130, 0.15);
+  --border: hsla(180, 10%, 74%, 1);
 }
 
 /* CSS Reset */
@@ -29,13 +31,7 @@ html {
 body {
   background-color: var(--light-grayish-cyan-1);
   background-image: url("../public/images/bg-header-mobile.svg"),
-    linear-gradient(
-      to bottom,
-      var(--dark-cyan) 0,
-      var(--dark-cyan) 156px,
-      var(--light-grayish-cyan-2) 156px,
-      var(--light-grayish-cyan-2) 100%
-    );
+    linear-gradient(to bottom, var(--dark-cyan) 0, var(--dark-cyan) 156px);
   background-size: 100% 156px;
   background-repeat: no-repeat;
   color: var(--very-dark-grayish-cyan);
@@ -47,6 +43,12 @@ body {
 img {
   display: block;
   width: 100%;
+}
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
 }
 
 .visually-hidden {
@@ -61,8 +63,8 @@ img {
 }
 
 .listings-wrapper {
-  margin: 21rem auto 0;
-  width: min(88%, 111rem);
+  margin: 21.2rem auto 3.4rem;
+  width: min(87.2%, 111rem);
 }
 
 /* Criteria */
@@ -71,10 +73,48 @@ img {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 4rem;
+  margin-bottom: 5.6rem;
   background-color: var(--white);
   border-radius: 5px;
-  padding: 3.25rem 2.5rem 2.5rem;
+  padding: 2rem 2.4rem 2rem 1.9rem;
+  box-shadow: 0 1.5rem 2rem -0.5rem var(--shadow);
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 2.4rem;
+  letter-spacing: -0.1px;
+}
+
+.criteria-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+}
+
+.btn-criteria {
+  color: var(--dark-cyan);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.btn-criteria-text {
+  background-color: var(--dark-cyan-transparent);
+  padding: 0.4rem 0.8rem;
+}
+
+.btn-remove {
+  background-color: var(--dark-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+.btn-clear {
+  color: var(--dark-grayish-cyan);
 }
 
 /* Listing */
@@ -84,9 +124,9 @@ img {
   margin-bottom: 4rem;
   background-color: var(--white);
   border-radius: 5px;
-  padding: 3.25rem 2.5rem 0.75rem;
+  padding: 3.2rem 2.4rem 2.4rem;
   position: relative;
-  box-shadow: 0 1rem 1rem var(--dark-cyan-shadow);
+  box-shadow: 0 1.5rem 2rem -0.5rem var(--shadow);
 }
 
 .featured-listing {
@@ -94,16 +134,16 @@ img {
 }
 
 .listing-text {
-  border-bottom: 1px solid var(--dark-grayish-cyan);
-  padding-bottom: 2rem;
-  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.6rem;
+  margin-bottom: 1.6rem;
 }
 
 .image-wrapper {
-  width: 5rem;
+  width: 4.8rem;
   position: absolute;
-  top: -2.5rem;
-  left: 2.33rem;
+  top: -2.4rem;
+  left: 2.4rem;
 }
 
 .logo {
@@ -113,25 +153,33 @@ img {
 .company-wrapper {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.company-wrapper.increased-margin {
+  margin-bottom: 1.4rem;
 }
 
 .company {
   color: var(--dark-cyan);
   font-weight: 700;
-  font-size: 1.2rem;
-  margin-right: 2rem;
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+  margin-right: 1.6rem;
 }
 
 .badge {
   display: inline-block;
   text-transform: uppercase;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  line-height: 1.4rem;
   font-weight: 700;
-  padding: 0.75rem 1rem 0.5rem;
+  padding: 0.6rem 0.8rem 0.4rem;
   color: var(--white);
-  margin-right: 1rem;
-  border-radius: 50px;
+  margin-right: 0.8rem;
+  border-radius: 12px;
+  text-align: center;
+  letter-spacing: -0.0846154px;
 }
 
 .new {
@@ -143,22 +191,30 @@ img {
 }
 
 .position {
+  font-weight: 700;
   font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  line-height: 2.4rem;
+  margin-bottom: 0.8rem;
 }
 
 .detail {
   color: var(--dark-grayish-cyan);
   display: inline-block;
   margin: 0 1rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  line-height: 2.4rem;
   position: relative;
+  letter-spacing: -0.1px;
 }
 
 .detail::after {
-  content: "\2022";
+  content: "";
+  background-color: var(--border);
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
   position: absolute;
-  top: 0;
+  top: 1rem;
   right: -1.25rem;
 }
 
@@ -170,20 +226,23 @@ img {
   margin-left: 0;
 }
 
-.filter-tablet {
-  border: none;
-  background-color: var(--light-grayish-cyan-1);
-  color: var(--dark-cyan);
-  display: inline-block;
-  margin: 0 1.75rem 1.75rem 0;
-  padding: 1rem 0.75rem;
-  border-radius: 5px;
-  line-height: 1;
-  font-weight: 700;
+.filter-tablets {
+  display: flex;
+  gap: 1.6rem;
+  flex-wrap: wrap;
 }
 
-.filter-tablet:hover {
-  cursor: pointer;
+.filter-tablet {
+  border: none;
+  background-color: var(--dark-cyan-transparent);
+  color: var(--dark-cyan);
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 2.4rem;
+  letter-spacing: -0.1px;
 }
 
 /* Footer */
@@ -198,41 +257,89 @@ img {
 }
 
 /* Media Queries */
-@media screen and (min-width: 376px) {
+@media screen and (max-width: 320px) {
+  /* Listing */
+
+  .company-wrapper {
+    grid-template-columns: repeat(2, auto);
+    display: grid;
+    gap: 0.5rem;
+    justify-content: start;
+    align-items: start;
+  }
+
+  .company {
+    grid-column: span 2;
+  }
+}
+
+@media screen and (max-width: 230px) {
+  /* Listing */
+
+  .company-wrapper {
+    grid-template-columns: auto;
+  }
+
+  .company {
+    grid-column: span 1;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  /* General Styles */
   body {
     background-image: url("../public/images/bg-header-desktop.svg"),
-      linear-gradient(
-        to bottom,
-        var(--dark-cyan) 0,
-        var(--dark-cyan) 156px,
-        var(--light-grayish-cyan-2) 156px,
-        var(--light-grayish-cyan-2) 100%
-      );
+      linear-gradient(to bottom, var(--dark-cyan) 0, var(--dark-cyan) 156px);
   }
 
-  .App {
-    margin-top: 23rem;
+  .listings-wrapper {
+    margin: 23.2rem auto 12rem;
   }
+
+  /* Criteria */
+
+  .filter-criteria {
+    margin-bottom: 4rem;
+    padding: 2rem 4rem;
+  }
+
+  .btn-remove:hover {
+    background-color: var(--very-dark-grayish-cyan);
+    cursor: pointer;
+  }
+
+  .btn-clear:hover {
+    color: var(--dark-cyan);
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  /* Listing */
 
   .listing {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.4rem;
+    padding: 3.2rem 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3.25rem 4rem;
+    gap: 2rem;
+  }
+
+  .featured-listing {
+    padding: 3.2rem 4rem 3.2rem 3.5rem;
   }
 
   .listing-details {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2.5rem;
+    gap: 2.4rem;
   }
 
   .listing-text {
-    border: none;
-    margin-bottom: 0;
+    border-bottom: none;
     padding-bottom: 0;
+    margin-bottom: 0;
   }
 
   .image-wrapper {
@@ -240,11 +347,59 @@ img {
     position: static;
   }
 
-  .filter-tablet {
-    margin: 0 1.75rem 0 0;
+  .company-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
   }
 
-  .filter-tablet:last-of-type {
-    margin-right: 0;
+  .company {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+  }
+
+  .position {
+    font-size: 1.8rem;
+  }
+
+  .position:hover {
+    cursor: pointer;
+    color: var(--dark-cyan);
+  }
+
+  .detail {
+    margin: 0 1.8rem;
+    font-size: 1.5rem;
+    letter-spacing: -0.115385px;
+  }
+
+  .detail::after {
+    right: -1.9rem;
+  }
+
+  .filter-tablet:hover {
+    cursor: pointer;
+    background: var(--dark-cyan);
+    color: var(--white);
+  }
+
+  #root
+    > main
+    > div
+    > section:nth-child(2)
+    > div.listing-details
+    > div.listing-text
+    > span:nth-child(4)::after {
+    right: -2.5rem;
+  }
+
+  #root
+    > main
+    > div
+    > section:nth-child(2)
+    > div.listing-details
+    > div.listing-text
+    > span:nth-child(5) {
+    margin-left: 2.2rem;
   }
 }

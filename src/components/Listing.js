@@ -16,10 +16,18 @@ const Listing = (props) => {
     <section className={`listing ${props.featured ? "featured-listing" : ""}`}>
       <div className="listing-details">
         <div className="image-wrapper">
-          <img src={props.logo} alt={`${props.company} logo`} class="logo" />
+          <img
+            src={props.logo}
+            alt={`${props.company} logo`}
+            className="logo"
+          />
         </div>
         <div className="listing-text">
-          <div className="company-wrapper">
+          <div
+            className={`company-wrapper ${
+              props.new || props.featured ? "" : "increased-margin"
+            }`}
+          >
             <h2 className="company">{props.company}</h2>
             {props.new && <Badge badgeClass="new" badgeText="New!" />}
             {props.featured && (
